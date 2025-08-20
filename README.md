@@ -1,28 +1,71 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# 🌱 Cypress Studies - Básico
 
-👋 Seja bem-vindo(a)!
+Este repositório reúne meus estudos práticos baseados no curso [**Cypress, do Zero à Nuvem ☁️**](https://github.com/walmirgiovanaz/cypress-do-zero-a-nuvem) da Escola Talking About Testing.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+📚 Estou aprendendo a construir testes automatizados E2E do zero, com foco em aplicações reais e integração contínua.
 
-## O que você vai aprender?
+---
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+## 📌 Aprendizados do curso
 
-## Vamos começar?
+- ✅ Configuração do Cypress em um projeto do zero
+- ✅ Visitas a páginas locais e remotas
+- ✅ Interação com elementos DOM
+- ✅ Upload de arquivos e validações
+- ✅ Comandos customizados
+- ✅ Testes com diferentes resoluções (mobile, desktop)
+- ✅ Integração com CI/CD e Cypress Cloud
+- ✅ Boas práticas de documentação para testes
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+> 🧠 A cada aula, novos testes são criados na pasta `/lessons`.
 
-___
+---
 
-Este é um curso da **Escola Talking About Testing**.
+## 🧪 Stack utilizada
+
+- ⚙️ Cypress
+- 🔧 Node.js
+- 📦 npm
+- ✨ (Opcional) Integração com CI via GitHub Actions
+
+---
+
+## 🚀 Rodando localmente
+
+```bash
+# 1. Instalar dependências
+npm install
+
+# 2. Abrir o Cypress em modo interativo
+npx cypress open
+
+# ou rodar em modo headless
+npx cypress run
+```
+
+---
+
+## 🗂️ Estrutura principal
+
+```
+cypress-studies-basico/
+├── lessons/          # Pastas por aula do curso
+├── src/              # Aplicação base (se houver)
+├── cypress/          # Arquivos de testes
+├── package.json
+└── README.md
+```
+
+---
+
+## 👩‍💻 Autoria
+
+Este projeto é mantido por [**Gabi Giovanna**](https://github.com/GabiGiovanna), como parte da trilha de QA Automation com Cypress.
+
+🎓 Baseado no curso de [Walmir Giovanaz](https://github.com/walmirgiovanaz) — *Cypress, do Zero à Nuvem*.
+
+---
+
+## 📝 Licença
+
+Uso educacional e pessoal.
