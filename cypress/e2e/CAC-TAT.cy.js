@@ -7,9 +7,9 @@ describe("Central de Atendimento ao Cliente TAT", () => {
     cy.title().should("be.equal", "Central de Atendimento ao Cliente TAT");
   });
 
-  it.only("preenche os campos obrigatórios e envia o formulário", () => {
+  it("preenche os campos obrigatórios e envia o formulário", () => {
     //Ações
-    const longText = Cypress._.repeat("asddfg", 10);
+    const longText = Cypress._.repeat("asddfgterth", 10);
 
     cy.get("#firstName").type("Gabriela");
     cy.get("#lastName").type("Giovanna Silva");
@@ -20,5 +20,14 @@ describe("Central de Atendimento ao Cliente TAT", () => {
     cy.get('button[type="submit"]').click();
     //Verificações
     cy.get(".success").should("be.visible");
+  });
+
+  it.only("exibe mensagem de erro ao submeter o formulário com um email com formatação inválida", () => {
+    cy.get("#firstName").type("Gabriela");
+    cy.get("#lastName").type("Giovanna Silva");
+    cy.get("#email").type("gabicom");
+    cy.get("#open-text-area").type("Teste");
+    cy.get('button[type="submit"]').click();
+    cy.get(".error").should("be.visible");
   });
 });
