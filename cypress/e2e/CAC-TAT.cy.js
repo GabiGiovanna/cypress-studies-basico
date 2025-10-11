@@ -47,7 +47,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
     cy.get(".error").should("be.visible");
   });
 
-  it.only("preenche e limpa os campos nome, sobrenome, email e telefone", () => {
+  it("preenche e limpa os campos nome, sobrenome, email e telefone", () => {
     cy.get("#firstName")
       .type("Gabriela")
       .should("have.value", "Gabriela")
@@ -72,4 +72,15 @@ describe("Central de Atendimento ao Cliente TAT", () => {
       .clear()
       .should("have.value", "")
   });
+
+
+  it.only('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios',() => {
+
+  cy.get('button[type="submit"]').click();
+  cy.get('.error').should('be.visible')
+
+
+  })
+
+
 });
