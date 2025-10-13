@@ -74,7 +74,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
   });
 
 
-  it.only('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios',() => {
+  it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios',() => {
 
   cy.get('button[type="submit"]').click();
   cy.get('.error').should('be.visible')
@@ -82,5 +82,17 @@ describe("Central de Atendimento ao Cliente TAT", () => {
 
   })
 
+it.only('envia o formuário com sucesso usando um comando customizado', () => {
+
+  const data = {firstName:"Gabriela",
+    lastName:"Giovanna Silva",
+    email:"gabi123@gmail.com",
+    text:"teste123"
+  }
+
+cy.fillMandatoryFieldsAndSubmit(data)
+cy.get('.success').should('be.visible');
+
+});
 
 });
