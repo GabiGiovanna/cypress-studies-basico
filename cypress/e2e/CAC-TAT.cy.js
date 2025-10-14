@@ -82,7 +82,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
 
   })
 
-it.only('envia o formuário com sucesso usando um comando customizado', () => {
+it('envia o formuário com sucesso usando um comando customizado', () => {
 
   const data = {firstName:"Gabriela",
     lastName:"Giovanna Silva",
@@ -92,6 +92,13 @@ it.only('envia o formuário com sucesso usando um comando customizado', () => {
 
 cy.fillMandatoryFieldsAndSubmit(data)
 cy.get('.success').should('be.visible');
+
+});
+
+it.only('seleciona um produto (YouTube) por seu texto',() => {
+
+
+  cy.get('#product').select('YouTube').should('have.value',"youtube") 
 
 });
 
