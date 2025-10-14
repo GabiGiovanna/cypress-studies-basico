@@ -17,7 +17,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
     cy.get("#open-text-area").type(longText, {
       delay: 0,
     });
-    cy.contains('button','Enviar').click();
+    cy.contains("button", "Enviar").click();
     //Verificações
     cy.get(".success").should("be.visible");
   });
@@ -27,7 +27,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
     cy.get("#lastName").type("Giovanna Silva");
     cy.get("#email").type("gabicom");
     cy.get("#open-text-area").type("Teste");
-    cy.contains('button',"Enviar").click();
+    cy.contains("button", "Enviar").click();
 
     cy.get(".error").should("be.visible");
   });
@@ -42,7 +42,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
     cy.get("#email").type("gabi@gmail.com");
     cy.get("#phone-checkbox").click();
     cy.get("#open-text-area").type("Teste");
-    cy.contains('button',"Enviar").click();
+    cy.contains("button", "Enviar").click();
 
     cy.get(".error").should("be.visible");
   });
@@ -52,54 +52,53 @@ describe("Central de Atendimento ao Cliente TAT", () => {
       .type("Gabriela")
       .should("have.value", "Gabriela")
       .clear()
-      .should("have.value", "")
+      .should("have.value", "");
 
     cy.get("#lastName")
       .type("Giovanna Silva")
       .should("have.value", "Giovanna Silva")
       .clear()
-      .should("have.value", "")
+      .should("have.value", "");
 
     cy.get("#email")
       .type("gabi@gmail.com")
       .should("have.value", "gabi@gmail.com")
       .clear()
-      .should("have.value", "")
+      .should("have.value", "");
 
     cy.get("#phone")
       .type("31986584522")
       .should("have.value", "31986584522")
       .clear()
-      .should("have.value", "")
+      .should("have.value", "");
   });
 
+  it("exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios", () => {
+    cy.contains("button", "Enviar").click();
+    cy.get(".error").should("be.visible");
+  });
 
-  it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios',() => {
+  it("envia o formuário com sucesso usando um comando customizado", () => {
+    const data = {
+      firstName: "Gabriela",
+      lastName: "Giovanna Silva",
+      email: "gabi123@gmail.com",
+      text: "teste123",
+    };
 
-  cy.contains('button',"Enviar").click();
-  cy.get('.error').should('be.visible')
+    cy.fillMandatoryFieldsAndSubmit(data);
+    cy.get(".success").should("be.visible");
+  });
 
+  it("seleciona um produto (YouTube) por seu texto", () => {
+    cy.get("#product").select("YouTube").should("have.value", "youtube");
+  });
+
+  it.only("seleciona um produto (Mentoria) por seu valor (value)",() => {
+
+
+cy.get("#product").select("mentoria").should("have.value","mentoria")
 
   })
-
-it('envia o formuário com sucesso usando um comando customizado', () => {
-
-  const data = {firstName:"Gabriela",
-    lastName:"Giovanna Silva",
-    email:"gabi123@gmail.com",
-    text:"teste123"
-  }
-
-cy.fillMandatoryFieldsAndSubmit(data)
-cy.get('.success').should('be.visible');
-
-});
-
-it.only('seleciona um produto (YouTube) por seu texto',() => {
-
-
-  cy.get('#product').select('YouTube').should('have.value',"youtube") 
-
-});
 
 });
