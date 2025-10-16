@@ -36,7 +36,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
     cy.get("#phone").type("abcdefghij").should("have.value", "");
   });
 
-  it.only("exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário", () => {
+  it("exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário", () => {
     cy.get("#firstName").type("Gabriela");
     cy.get("#lastName").type("Giovanna Silva");
     cy.get("#email").type("gabi@gmail.com");
@@ -123,5 +123,13 @@ describe("Central de Atendimento ao Cliente TAT", () => {
       .should("not.be.checked");
   });
 
+  it.only("seleciona um arquivo da pasta fixtures", () => {
+    cy.get("#file-upload") //Identificando elemento do tipo file id
+      .selectFile("cypress/fixtures/example.json") //fazendo upload do arquivo
+      .should((input) => {
+        //Usando no should uma função de callback(arrow function) e essa função recebe o input
 
+        expect(input[0].files[0].name).to.equal("example.json"); //E aq ele fala que espera que o name do input no indice 0, o file do indice 0 se igual(.to.equal) ao nome do nosso arquivo
+      });
+  });
 });
