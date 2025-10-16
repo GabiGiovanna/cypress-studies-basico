@@ -123,7 +123,7 @@ describe("Central de Atendimento ao Cliente TAT", () => {
       .should("not.be.checked");
   });
 
-  it.only("seleciona um arquivo da pasta fixtures", () => {
+  it("seleciona um arquivo da pasta fixtures", () => {
     cy.get("#file-upload") //Identificando elemento do tipo file id
       .selectFile("cypress/fixtures/example.json") //fazendo upload do arquivo
       .should((input) => {
@@ -132,4 +132,18 @@ describe("Central de Atendimento ao Cliente TAT", () => {
         expect(input[0].files[0].name).to.equal("example.json"); //E aq ele fala que espera que o name do input no indice 0, o file do indice 0 se igual(.to.equal) ao nome do nosso arquivo
       });
   });
+
+it.only('seleciona um arquivo simulando um drag-and-drop',() => {
+
+ cy.get("#file-upload") //Identificando elemento do tipo file id
+      .selectFile("cypress/fixtures/example.json",{action: 'drag-drop'}) //fazendo upload do arquivo arrastando com o "action: 'drag-drop'"
+      .should((input) => {
+        //Usando no should uma função de callback(arrow function) e essa função recebe o input
+
+        expect(input[0].files[0].name).to.equal("example.json"); //E aq ele fala que espera que o name do input no indice 0, o file do indice 0 se igual(.to.equal) ao nome do nosso arquivo
+      });
+
+
+})
+
 });
